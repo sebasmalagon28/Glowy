@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Glowy | Moda con estilo</title>
+
+  <style>
+    /* EDITAR: COLORES PRINCIPALES */
+    :root {
+      --rosa: #e94b9b;
+      --rosa-claro: #fff0f7;
+      --rosa-fondo: #fff9fc;
+      --texto: #30232c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--texto);
+      background: white;
+    }
+
+    /* BARRA DE NAVEGACIÓN */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 7%;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px #0000000c;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: var(--rosa);
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--rosa);
+    }
+
+    /* PORTADA: IMAGEN GRANDE */
+    .hero {
+      min-height: 430px;
+      padding: 70px 8%;
+      display: flex;
+      align-items: center;
+      background: var(--rosa-claro);
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      margin: 15px 0;
+    }
+
+    .hero p {
+      line-height: 1.8;
+      max-width: 440px;
+      margin-bottom: 25px;
+    }
+
+    .hero img {
+      width: 45%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--rosa);
+      color: white;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    /* CATÁLOGO */
+    .catalogo {
+      padding: 65px 7%;
+      text-align: center;
+      background: var(--rosa-fondo);
+    }
+
+    .catalogo h2,
+    .nosotros h2,
+    .contacto h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .subtitulo {
+      color: #766671;
+      margin-bottom: 35px;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .producto {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      text-align: left;
+      box-shadow: 0 4px 18px #e94b9b12;
+    }
+
+    /* EDITAR: FOTOS DE PRODUCTOS */
+    .producto img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .info {
+      padding: 17px;
+    }
+
+    .info h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .precio {
+      color: var(--rosa);
+      font-weight: bold;
+      font-size: 19px;
+      margin-bottom: 14px;
+    }
+
+    .info .btn {
+      width: 100%;
+      text-align: center;
+      padding: 11px;
+    }
+
+    /* SOBRE LA MARCA */
+    .nosotros {
+      padding: 70px 10%;
+      text-align: center;
+      line-height: 1.9;
+    }
+
+    .nosotros p {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* CONTACTO */
+    .contacto {
+      background: var(--rosa-claro);
+      text-align: center;
+      padding: 65px 7%;
+    }
+
+    .contacto p {
+      margin: 15px 0 25px;
+    }
+
+    footer {
+      background: #30232c;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* ADAPTACIÓN PARA CELULARES */
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero img {
+        width: 100%;
+        height: 280px;
+      }
+
+      .productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 430px) {
+      .productos {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+/* ESPACIO PROVISIONAL PARA LAS FOTOS */
+.foto-pendiente {
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(145deg, #ffe0ef, #f9c5e0);
+  color: #a72d70;
+  text-align: center;
+}
+
+.foto-pendiente .simbolo {
+  font-size: 48px;
+}
+
+.foto-pendiente p {
+  font-size: 13px;
+}
+
+/* BOTÓN DE PEDIDO */
+.producto .btn {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.producto .btn:hover {
+  background: #bf287d;
+}
+</style>
+</head>
+
+<body>
+
+  <header>
+    <!-- EDITAR: NOMBRE Y LOGO -->
+    <div class="logo">Glowy ✨</div>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Colección</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <p>✦ TU ESTILO, TU ESENCIA ✦</p>
+
+        <!-- EDITAR: FRASE DE PRESENTACIÓN -->
+        <h1>Brilla a tu manera.</h1>
+
+        <p>
+          Descubre tu próxima prenda favorita.
+          En Glowy, cada look cuenta una historia.
+        </p>
+
+        <a href="#catalogo" class="btn">
+          Explorar colección
+        </a>
+      </div>
+
+      <!-- EDITAR: IMAGEN PRINCIPAL -->
+      <img src="images/glowy.jpeg"
+           alt="Colección de moda Glowy">
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="catalogo" id="catalogo">
+      <h2>Nuestra colección 💗</h2>
+      <p class="subtitulo">
+        Encuentra las prendas que van contigo.
+      </p>
+
+      <div class="productos">
+
+<!-- PRODUCTO 1 -->
+<article class="producto">
+  <div class="foto-pendiente">
+    <span class="simbolo">🎀</span>
+    <p>Tu fotografía irá aquí</p>
+  </div>
+  <div class="info">
+    <h3>Top Rosé</h3>
+    <p class="precio">$18.00</p>
+    <a class="btn"
+       href="https://wa.me/593XXXXXXXXX?text=Hola%20Glowy%2C%20me%20interesa%20el%20Top%20Ros%C3%A9."
+       target="_blank" rel="noopener noreferrer">
+      Consultar por WhatsApp
+    </a>
+  </div>
+</article>
+
+<!-- PRODUCTO 2 -->
+<article class="producto">
+  <div class="foto-pendiente">
+    <span class="simbolo">🌸</span>
+    <p>Tu fotografía irá aquí</p>
+  </div>
+  <div class="info">
+    <h3>Vestido Bloom</h3>
+    <p class="precio">$28.00</p>
+    <a class="btn"
+       href="https://wa.me/593XXXXXXXXX?text=Hola%20Glowy%2C%20me%20interesa%20el%20Vestido%20Bloom."
+       target="_blank" rel="noopener noreferrer">
+      Consultar por WhatsApp
+    </a>
+  </div>
+</article>
+
+<!-- PRODUCTO 3 -->
+<article class="producto">
+  <div class="foto-pendiente">
+    <span class="simbolo">💗</span>
+    <p>Tu fotografía irá aquí</p>
+  </div>
+  <div class="info">
+    <h3>Conjunto Glow</h3>
+    <p class="precio">$35.00</p>
+    <a class="btn"
+       href="https://wa.me/593XXXXXXXXX?text=Hola%20Glowy%2C%20me%20interesa%20el%20Conjunto%20Glow."
+       target="_blank" rel="noopener noreferrer">
+      Consultar por WhatsApp
+    </a>
+  </div>
+</article>
+
+<!-- PRODUCTO 4 -->
+<article class="producto">
+  <div class="foto-pendiente">
+    <span class="simbolo">✨</span>
+    <p>Tu fotografía irá aquí</p>
+  </div>
+  <div class="info">
+    <h3>Look Chic</h3>
+    <p class="precio">$22.00</p>
+    <a class="btn"
+       href="https://wa.me/593XXXXXXXXX?text=Hola%20Glowy%2C%20me%20interesa%20el%20Look%20Chic."
+       target="_blank" rel="noopener noreferrer">
+      Consultar por WhatsApp
+    </a>
+  </div>
+</article>
+
+      </div>
+    </section>
+
+    <!-- EDITAR: HISTORIA DE TU EMPRESA -->
+    <section class="nosotros" id="nosotros">
+      <h2>Un poquito de Glowy</h2>
+      <p>
+        Creemos que la moda es una forma de expresar
+        quién eres. Queremos acompañarte con prendas
+        que te hagan sentir cómoda, auténtica y segura.
+        ¡Gracias por ser parte de nuestra historia!
+      </p>
+    </section>
+
+    <!-- EDITAR: CONTACTO DE TU NEGOCIO -->
+    <section class="contacto" id="contacto">
+      <h2>¿Te gustó alguna prenda? 💌</h2>
+      <p>
+        Escríbenos para consultar tallas,
+        disponibilidad y pedidos.
+      </p>
+
+      <!-- REEMPLAZA EL ENLACE POR TU WHATSAPP -->
+      <a class="btn"
+         href="https://wa.me/593XXXXXXXXX"
+         target="_blank"
+         rel="noopener noreferrer">
+        Contactar por WhatsApp
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Glowy · Moda con estilo 💗</p>
+  </footer>
+
+</body>
+</html>
